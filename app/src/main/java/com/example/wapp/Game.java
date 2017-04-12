@@ -16,8 +16,11 @@ public class Game extends AppCompatActivity {
         Intent intent = getIntent();
         int dest = intent.getIntExtra(SelectDest.EXTRA_MESSAGE,0);
 
-        // Capture the layout's TextView and set the string as its text
-        TextView textView = (TextView) findViewById(R.id.Gametext);
-        textView.setText(String.valueOf(dest));
+        if(dest > 0) {
+            Intent destination = new Intent(this, destination.class);
+            startActivity(destination);
+            dest = dest -1;
+        }
     }
 }
+

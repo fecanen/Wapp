@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SelectDest" />
-        <activity android:name=".Game"></activity>
+        <activity android:name=".Game" />
+        <activity android:name=".destination"></activity>
     </application>
 
 </manifest>
