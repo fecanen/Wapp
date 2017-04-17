@@ -44,11 +44,14 @@ public class DestinationParser {
     }
 
     private Destination readDestination(XmlPullParser parser,int nbrdest) throws XmlPullParserException, IOException {
-        int latitude = readLat(parser);
-        int longitude = readLong(parser);
+        String latitude = readLat(parser);
+        parser.nextTag();
+        String longitude = readLong(parser);
+        parser.nextTag();
         String name = readName(parser);
+        parser.nextTag();
 
-        Destination d = new Destination(latitude,longitude,name);
+        Destination d = new Destination(Integer.parseInt(latitude),Integer.parseInt(longitude),name);
 
         parser.require(XmlPullParser.START_TAG, ns, "Leads");
 
@@ -69,11 +72,18 @@ public class DestinationParser {
         return lead;
     }
 
-    private int readLat(XmlPullParser parser) throws IOException, XmlPullParserException {
+    private String readLat(XmlPullParser parser) throws IOException, XmlPullParserException {
         parser.require(XmlPullParser.START_TAG, ns, "latitude");
-        int latitude = Integer.parseInt(readText(parser));
+        String latitude = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "latitude");
         return latitude;
+    }
+
+    private String readLong(XmlPullParser parser) throws IOException, XmlPullParserException {
+        parser.require(XmlPullParser.START_TAG, ns, "longitude");
+        String longitude = readText(parser);
+        parser.require(XmlPullParser.END_TAG, ns, "longitude");
+        return longitude;
     }
 
     private String readName(XmlPullParser parser) throws IOException, XmlPullParserException {
@@ -81,13 +91,6 @@ public class DestinationParser {
         String name = readText(parser);
         parser.require(XmlPullParser.END_TAG, ns, "name");
         return name;
-    }
-
-    private int readLong(XmlPullParser parser) throws IOException, XmlPullParserException {
-        parser.require(XmlPullParser.START_TAG, ns, "longitude");
-        int longitude = Integer.parseInt(readText(parser));
-        parser.require(XmlPullParser.END_TAG, ns, "longitude");
-        return longitude;
     }
 
     private String readText(XmlPullParser parser) throws IOException, XmlPullParserException {
@@ -98,8 +101,5 @@ public class DestinationParser {
         }
         return result;
     }
-
-
-
 
 }
