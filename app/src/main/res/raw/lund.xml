@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed>
 <Destination>
-    <Lead>siren</Lead>
-    <Lead>siren</Lead>
-    <Lead>siren</Lead>
+    <latitude>1</latitude>
+    <longitude>2</longitude>
+    <name>Lunds domkyrka</name>
+
+    <Leads>
+    <Lead>adress1.mp3</Lead>
+    <Lead>adress2.mp3</Lead>
+    <Lead>adress3.mp3</Lead>
+    </Leads>
 </Destination>
-</feed>

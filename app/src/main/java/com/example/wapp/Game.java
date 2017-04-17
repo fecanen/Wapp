@@ -59,7 +59,7 @@ public class Game extends AppCompatActivity {
         if (score > 3) {
             score = score - 2;
             Score.setText(String.valueOf(score));
-            playLead(destination.getLead());
+ //         playLead(destination.getLead());
         }
     }
 
@@ -73,8 +73,8 @@ public class Game extends AppCompatActivity {
 
     //Adress is the adress of the sound that should be played.
     private void playLead(String adress){
-        MediaPlayer mediaPlayer = MediaPlayer.create(context,R.raw.siren);
-        mediaPlayer.start();
+   //     MediaPlayer mediaPlayer = MediaPlayer.create(context,R.raw.siren);
+   //     mediaPlayer.start();
     }
 }
 
