@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Destination>
-    <latitude>1</latitude>
-    <longitude>2</longitude>
-    <name>Lunds domkyrka</name>
+    <latitude>55.7040609</latitude>
+    <longitude>13.1937004</longitude>
+    <name>Lunds Domkyrka</name>
 
     <Leads>
     <Lead>siren</Lead>

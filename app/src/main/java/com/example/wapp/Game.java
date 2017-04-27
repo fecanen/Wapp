@@ -1,21 +1,15 @@
 package com.example.wapp;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
+import android.location.LocationManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.File;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -27,6 +21,7 @@ public class Game extends AppCompatActivity {
     private DestinationParser parser;
     Destination destination;
     Context context;
+    GPS gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,46 +30,40 @@ public class Game extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        //How many destinations were clicked
         int nbrdest = intent.getIntExtra(SelectDest.EXTRA_MESSAGE,0);
-
-        //Get the xml inputstream from lund.xml
         InputStream in = this.getResources().openRawResource(R.raw.lund);
         parser = new DestinationParser();
         context = this;
 
         try {
-            //Loading a specific number of destinations to a linked list. Each destination contains
-            //a specific amount of leads.
             destinations = loadGame(in,nbrdest);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         }
-
         //destination is the destination currently being played.
         destination = destinations.poll();
-
         score = 10;
         Score = (TextView) findViewById(R.id.Score);
         Score.setText(String.valueOf(score));
+
+        LocationManager lm = (LocationManager)getSystemService(context.LOCATION_SERVICE);
+        gps = new GPS(context,lm);
     }
 
     public void nextLead(View view) {
         if (score > 3) {
-            score = score - 2;
-            Score.setText(String.valueOf(score));
-      //     playLead(destination.getLead());
+    //        score = score - 2;
+ //           Score.setText(String.valueOf(score));
             try {
                playLead(destination.getLead());
+                double dist = gps.distFrom(destination.getLat(),destination.getLong());
+                Score.setText(String.valueOf(dist));
             }catch(IOException e){
 
             }
         }
-    }
-
-    public void checkRight(){
     }
 
     //Parses an XML file with the leads to each destination. The Leads are adressess to sounds that should be played
@@ -87,6 +76,10 @@ public class Game extends AppCompatActivity {
         MediaPlayer mp;
         mp=MediaPlayer.create(context, getResources().getIdentifier(adress,"raw",getPackageName()));
         mp.start();
+    }
+
+    public void checkGPS(){
+
     }
 }
 

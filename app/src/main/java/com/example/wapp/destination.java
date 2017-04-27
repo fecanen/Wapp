@@ -6,11 +6,11 @@ import java.util.LinkedList;
 public class Destination {
 
     private LinkedList<String> leads;
-    private int latitude;
-    private int longitude;
+    private double latitude;
+    private double longitude;
     private String name;
 
-    public Destination(int latitude,int longitude,String name) {
+    public Destination(double latitude,double longitude,String name) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
@@ -26,11 +26,11 @@ public class Destination {
         leads.add(s);
     }
 
-    public int getLat(){
+    public double getLat(){
         return latitude;
     }
 
-    public int getLong(){
+    public double getLong(){
         return longitude;
     }
 

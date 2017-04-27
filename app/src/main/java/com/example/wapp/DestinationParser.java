@@ -51,7 +51,7 @@ public class DestinationParser {
         String name = readName(parser);
         parser.nextTag();
 
-        Destination d = new Destination(Integer.parseInt(latitude),Integer.parseInt(longitude),name);
+        Destination d = new Destination(Double.parseDouble(latitude),Double.parseDouble(longitude),name);
 
         parser.require(XmlPullParser.START_TAG, ns, "Leads");
 
