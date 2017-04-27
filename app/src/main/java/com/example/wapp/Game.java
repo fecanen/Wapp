@@ -1,8 +1,12 @@
 package com.example.wapp;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +14,8 @@ import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.File;
+import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -59,7 +65,12 @@ public class Game extends AppCompatActivity {
         if (score > 3) {
             score = score - 2;
             Score.setText(String.valueOf(score));
- //         playLead(destination.getLead());
+      //     playLead(destination.getLead());
+            try {
+               playLead(destination.getLead());
+            }catch(IOException e){
+
+            }
         }
     }
 
@@ -72,9 +83,10 @@ public class Game extends AppCompatActivity {
     }
 
     //Adress is the adress of the sound that should be played.
-    private void playLead(String adress){
-   //     MediaPlayer mediaPlayer = MediaPlayer.create(context,R.raw.siren);
-   //     mediaPlayer.start();
+    private void playLead(String adress) throws IOException{
+        MediaPlayer mp;
+        mp=MediaPlayer.create(context, getResources().getIdentifier(adress,"raw",getPackageName()));
+        mp.start();
     }
 }
 
