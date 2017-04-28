@@ -5,8 +5,10 @@
     <name>Lunds Domkyrka</name>
 
     <Leads>
-    <Lead>siren</Lead>
-    <Lead>siren</Lead>
-    <Lead>siren</Lead>
+    <Lead>one</Lead>
+    <Lead>two</Lead>
+    <Lead>three</Lead>
+    <Lead>four</Lead>
+    <Lead>five</Lead>
     </Leads>
 </Destination>
