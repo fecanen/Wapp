@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.SeekBar;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -18,6 +19,10 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
+
+import slide.SlideButton;
+import slide.SlideButtonListener;
+
 
 public class Game extends AppCompatActivity {
     private int score;
@@ -65,6 +70,13 @@ public class Game extends AppCompatActivity {
         mAccelLast = SensorManager.GRAVITY_EARTH;
 
         currentLead = destination.getLead();
+
+        ((SlideButton) findViewById(R.id.unlockButton)).setSlideButtonListener(new SlideButtonListener() {
+            @Override
+            public void handleSlide() {
+                //lås in GPS
+            }
+        });
 
         //play the first lead directly when the game is started
         try {
