@@ -74,7 +74,16 @@ public class Game extends AppCompatActivity {
         ((SlideButton) findViewById(R.id.unlockButton)).setSlideButtonListener(new SlideButtonListener() {
             @Override
             public void handleSlide() {
-                //lås in GPS
+                findViewById(R.id.unlockButton).bringToFront();
+                double dist = gps.distFrom(destination.getLat(),destination.getLong());
+                double radius = 0.2;
+                if(dist < radius){
+                    Intent intent = new Intent(context, RightAnswer.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(context, WrongAnswer.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -93,8 +102,6 @@ public class Game extends AppCompatActivity {
             currentLead = destination.getLead();
             try {
                 playLead(currentLead);
-                //double dist = gps.distFrom(destination.getLat(),destination.getLong());
-                //Score.setText(String.valueOf(dist));
             }catch(IOException e){
 
             }
@@ -122,9 +129,6 @@ public class Game extends AppCompatActivity {
         mp.start();
     }
 
-    public void checkGPS(){
-
-    }
 
     //SensorListener that listens for shakes, code from http://stackoverflow.com/questions/2317428/android-i-want-to-shake-it
     private SensorManager mSensorManager;

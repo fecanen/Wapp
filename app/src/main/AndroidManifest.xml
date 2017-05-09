@@ -3,7 +3,7 @@
     package="com.example.wapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +21,12 @@
         </activity>
         <activity android:name=".SelectDest" />
         <activity android:name=".Game" />
+        <activity
+            android:name=".RightAnswer"
+            android:label="@string/title_activity_right_answer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WrongAnswer" />
+        <activity android:name=".WelcomeActivity"></activity>
     </application>
 
 </manifest>
