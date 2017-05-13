@@ -10,18 +10,21 @@
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
 
-    <string name="slide_1_title">Hello Food!</string>
+    <string name="slide_1_title">Det interaktiva På Spåret-spelet</string>
     <string name="slide_1_desc">Du ska ta dig till en hemlig destination med hjälp av olika ledtrådar.
         Det finns fem olika ledtrådar på olika poängnivå, med olika svårighetsgrad.
         Ledtrådarna kommer läsas upp för dig.
         Skaka telefonen för att höra en ledtråd igen.</string>
 
-    <string name="slide_2_title">Movie Tickets</string>
-    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
+    <string name="slide_2_title">Ta dig till destinationen</string>
+    <string name="slide_2_desc">När du tror att du vet vilken destination som avses ska du ta dig dit.
+        När du tror att du befinner dig på destinationen ska du dra i STOPP-handtaget.</string>
 
-    <string name="slide_3_title">Great Discounts</string>
-    <string name="slide_3_desc">Best discounts on every single service we offer!</string>
+    <string name="slide_3_title">Livlinor</string>
+    <string name="slide_3_desc">Om du tycker att det blir för svårt, men ändå inte vill gå vidare till nästa poängnivå har du också två livlinor till din hjälp.
+        En livlina kommer att ge dig i vilken riktning destinationen ligger, med hjälp av en ljudkompass.
+        Den andra livlinan kommer att ge dig avståndet till destinationen.</string>
 
-    <string name="slide_4_title">World Travel</string>
-    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+    <string name="slide_4_title">Plugga nu in hörlurarna och ta reda på:</string>
+    <string name="slide_4_desc">vart är vi påväg?</string>
 </resources>
