@@ -52,7 +52,7 @@ public class WelcomeActivity extends AppCompatActivity {
         addBottomDots(0);
 
         // making notification bar transparent
-        changeStatusBarColor();
+        //changeStatusBarColor();
 
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);

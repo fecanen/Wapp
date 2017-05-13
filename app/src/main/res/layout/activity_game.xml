@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/PåSpåretBackgroundColor"
     tools:context="com.example.wapp.Game"
     tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp">
@@ -12,61 +13,51 @@
         android:id="@+id/compass"
         android:layout_width="95dp"
         android:layout_height="95dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="64dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:background="@color/black"
         android:onClick="triggerCompass"
         android:padding="2dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/compass2"
-        app:layout_constraintBottom_toTopOf="@+id/nextLead"
-        app:layout_constraintHorizontal_bias="0.146"
+        android:src="@drawable/kompass1"
+        app:layout_constraintBottom_toTopOf="@+id/vibb"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/vibb" />
+        app:srcCompat="@drawable/kompass1" />
 
     <ImageButton
         android:id="@+id/vibb"
         android:layout_width="95dp"
         android:layout_height="95dp"
-        android:layout_weight="1"
         android:adjustViewBounds="true"
         android:background="@color/black"
         android:padding="2dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/vibb2"
-        android:layout_marginRight="28dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/nextLead"
-        android:layout_marginEnd="28dp" />
+        app:srcCompat="@drawable/vibb41"
+        android:layout_marginLeft="64dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="64dp" />
 
 
     <ImageButton
         android:id="@+id/nextLead"
-        android:background="@color/black"
         android:layout_width="95dp"
         android:layout_height="95dp"
+        android:layout_marginBottom="120dp"
+        android:layout_marginRight="64dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
+        android:background="@color/black"
         android:onClick="nextLead"
         android:padding="2dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/pil"
+        android:src="@drawable/next1"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/Score"
-        app:layout_constraintVertical_bias="0.88"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:srcCompat="@drawable/next1" />
 
     <TextView
         android:id="@+id/Score"
@@ -105,4 +96,6 @@
 
 
     </slide.SlideButton>
+
+
 </android.support.constraint.ConstraintLayout>
