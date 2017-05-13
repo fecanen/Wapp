@@ -16,7 +16,7 @@ public class RightAnswer extends AppCompatActivity {
                        finish();
                     }
                 },
-                5000);
+                4000);
     }
 
 }

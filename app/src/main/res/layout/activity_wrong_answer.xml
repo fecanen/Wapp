@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/AccentColor2"
     tools:context="com.example.wapp.WrongAnswer">
 
     <TextView
@@ -13,8 +14,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="128dp"
-        android:text="Du gissade fel :c"
-        android:textColor="@color/AccentColor2"
+        android:text="Du gissade fel!"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -28,7 +29,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="32dp"
         android:text="0 poäng"
-        android:textColor="@color/AccentColor2"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

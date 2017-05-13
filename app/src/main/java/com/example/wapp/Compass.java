@@ -95,6 +95,7 @@ public class Compass extends Activity implements SensorEventListener {
             System.arraycopy(event.values, 0, mLastMagnetometer, 0, event.values.length);
             mLastMagnetometerSet = true;
         }
+
         if (mLastAccelerometerSet && mLastMagnetometerSet) {
             SensorManager.getRotationMatrix(mR, null, mLastAccelerometer, mLastMagnetometer);
             SensorManager.getOrientation(mR, mOrientation);
@@ -103,17 +104,10 @@ public class Compass extends Activity implements SensorEventListener {
 
             mCurrentDegree = azimuthInDegress;
 
-            TextView Degree = (TextView) findViewById(R.id.textView3);
-            Degree.setText(String.valueOf(mCurrentDegree));
-
-            TextView Bearing = (TextView) findViewById(R.id.textView4);
-            Bearing.setText(String.valueOf(counter));
-
-
             if(mCurrentDegree > (bearing-30) && mCurrentDegree < (bearing +30)){
-                    count=50;
+                    count=60;
             }else if(mCurrentDegree > (bearing-90) && mCurrentDegree < (bearing +90)){
-                count=100;
+                count=110;
             }else{
                 count = 220;
             }

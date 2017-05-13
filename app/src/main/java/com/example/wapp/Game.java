@@ -85,6 +85,12 @@ public class Game extends AppCompatActivity {
                     Intent intent = new Intent(context, WrongAnswer.class);
                     startActivity(intent);
                 }
+
+                if(destinations.isEmpty()){
+                    finish();
+                }else{
+                    destination = destinations.poll();
+                }
             }
         });
 
@@ -118,7 +124,14 @@ public class Game extends AppCompatActivity {
         intent.putExtra("lat2",gps.getLat());
         intent.putExtra("long2",gps.getLong());
 
-        startActivity(intent);
+        startActivityForResult(intent,1);
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        finishActivity(1);
+                    }
+                },
+                16000);
     }
 
     //repeats the current lead

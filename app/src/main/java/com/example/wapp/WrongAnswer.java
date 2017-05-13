@@ -17,6 +17,6 @@ public class WrongAnswer extends AppCompatActivity {
                         finish();
                     }
                 },
-                10000);
+                4000);
     }
 }
