@@ -10,23 +10,24 @@
 
     <ImageButton
         android:id="@+id/compass"
-        android:background="@color/black"
         android:layout_width="95dp"
         android:layout_height="95dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
+        android:background="@color/black"
+        android:onClick="triggerCompass"
         android:padding="2dp"
         android:scaleType="fitCenter"
         android:src="@drawable/compass2"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/vibb"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintBottom_toTopOf="@+id/nextLead"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/vibb" />
 
     <ImageButton
         android:id="@+id/vibb"

@@ -26,7 +26,8 @@
             android:label="@string/title_activity_right_answer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".WrongAnswer" />
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".Compass"></activity>
     </application>
 
 </manifest>

@@ -61,6 +61,11 @@ public class GPS {
         return latitude;
     }
 
+    public double getLong(){
+        return longitude;
+    }
+
+
     //http://stackoverflow.com/questions/120283/how-can-i-measure-distance-and-create-a-bounding-box-based-on-two-latitudelongi/123305#123305
     public double distFrom(double lat1, double lng1) {
         double earthRadius = 6371; // miles (or 6371.0 kilometers)

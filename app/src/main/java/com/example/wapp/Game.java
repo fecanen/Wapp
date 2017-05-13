@@ -2,6 +2,7 @@ package com.example.wapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -106,6 +107,18 @@ public class Game extends AppCompatActivity {
 
             }
         }
+    }
+
+    public void triggerCompass(View view){
+        Intent intent = new Intent(context, Compass.class);
+
+        intent.putExtra("lat1",destination.getLat());
+        intent.putExtra("long1",destination.getLong());
+
+        intent.putExtra("lat2",gps.getLat());
+        intent.putExtra("long2",gps.getLong());
+
+        startActivity(intent);
     }
 
     //repeats the current lead
