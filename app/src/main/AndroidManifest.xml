@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -27,7 +28,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".WrongAnswer" />
         <activity android:name=".WelcomeActivity" />
-        <activity android:name=".Compass"></activity>
+        <activity android:name=".Compass" />
+        <activity android:name=".Distance"></activity>
     </application>
 
 </manifest>

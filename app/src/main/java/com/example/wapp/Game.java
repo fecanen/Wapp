@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.SeekBar;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -34,6 +33,7 @@ public class Game extends AppCompatActivity {
     Context context;
     GPS gps;
     String currentLead;
+    public static final String DISTANCE = "distance";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +132,12 @@ public class Game extends AppCompatActivity {
                     }
                 },
                 16000);
+    }
+
+    public void distanceToTarget(View view) {
+        Intent intent = new Intent(this, Distance.class);
+        intent.putExtra(DISTANCE, gps.distFrom(destination.getLat(), destination.getLong()));;
+        startActivity(intent);
     }
 
     //repeats the current lead

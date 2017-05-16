@@ -68,7 +68,7 @@ public class GPS {
 
     //http://stackoverflow.com/questions/120283/how-can-i-measure-distance-and-create-a-bounding-box-based-on-two-latitudelongi/123305#123305
     public double distFrom(double lat1, double lng1) {
-        double earthRadius = 6371; // miles (or 6371.0 kilometers)
+        double earthRadius = 6371; // miles (or 6371.0 kilometers
         double dLat = Math.toRadians(latitude-lat1);
         double dLng = Math.toRadians(longitude-lng1);
         double sindLat = Math.sin(dLat / 2);
