@@ -34,6 +34,7 @@ public class Game extends AppCompatActivity {
     GPS gps;
     String currentLead;
     public static final String DISTANCE = "distance";
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +78,11 @@ public class Game extends AppCompatActivity {
             public void handleSlide() {
                 findViewById(R.id.unlockButton).bringToFront();
                 double dist = gps.distFrom(destination.getLat(),destination.getLong());
-                double radius = 0.2;
+                mp.stop();
+                double radius = 0.1;
                 if(dist < radius){
                     Intent intent = new Intent(context, RightAnswer.class);
+                    intent.putExtra("nbrpoint", score);
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(context, WrongAnswer.class);
@@ -96,6 +99,8 @@ public class Game extends AppCompatActivity {
 
         //play the first lead directly when the game is started
         try {
+            long curTime = System.currentTimeMillis();
+            mLastShakeTime = curTime;
             playLead(currentLead);
         }catch(IOException e){
 
@@ -108,6 +113,7 @@ public class Game extends AppCompatActivity {
             Score.setText(String.valueOf(score));
             currentLead = destination.getLead();
             try {
+                mp.stop();
                 playLead(currentLead);
             }catch(IOException e){
 
@@ -123,7 +129,7 @@ public class Game extends AppCompatActivity {
 
         intent.putExtra("lat2",gps.getLat());
         intent.putExtra("long2",gps.getLong());
-
+        mp.stop();
         startActivityForResult(intent,1);
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -135,6 +141,7 @@ public class Game extends AppCompatActivity {
     }
 
     public void distanceToTarget(View view) {
+        mp.stop();
         Intent intent = new Intent(this, Distance.class);
         intent.putExtra(DISTANCE, gps.distFrom(destination.getLat(), destination.getLong()));;
         startActivity(intent);
@@ -156,7 +163,6 @@ public class Game extends AppCompatActivity {
 
     //Adress is the adress of the sound that should be played.
     private void playLead(String adress) throws IOException{
-        MediaPlayer mp;
         mp=MediaPlayer.create(context, getResources().getIdentifier(adress,"raw",getPackageName()));
         mp.start();
     }
@@ -185,6 +191,7 @@ public class Game extends AppCompatActivity {
 
                 if (mAccel > 20) {
                     mLastShakeTime = curTime;
+                    mp.stop();
                     repeatLead();
                 }
             }

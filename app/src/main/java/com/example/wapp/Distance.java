@@ -45,12 +45,18 @@ public class Distance extends AppCompatActivity {
 
     /**Updates TextView when the vibrator is finished*/
     private void waitForVib(final int delay,final TextView view){
-        int time = delay * 900; // in milliseconds
+        int time = 0;
+        if(delay < 3){
+            time = (delay * 900) + 2000;
+        }else{
+            time = delay * 900; // in milliseconds
+        }
+        final int interval = (delay * 100)+100;
         Handler h = new Handler();
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                view.setText("Du är över " + "\n" + delay * 100 + " m från målet");
+                view.setText("Du är " + delay * 100 + " till " + Integer.toString(interval) + " meter \n från målet");
             }
         },time);
         view.setText("Varje vibration motsvarar 100 meter");

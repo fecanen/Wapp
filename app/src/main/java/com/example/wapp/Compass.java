@@ -64,8 +64,9 @@ public class Compass extends Activity implements SensorEventListener {
         l2.setLatitude(lat2);
         l2.setLongitude(long2);
 
-        bearing = l2.bearingTo(l1);
-        bearing = (-bearing / 360 + 180);
+        bearing = l1.bearingTo(l2);
+        bearing = (bearing +180);
+
 
         count = 230;
         counter = 0;
